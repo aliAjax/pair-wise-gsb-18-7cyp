@@ -18,7 +18,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -110,7 +111,7 @@ label span {
 
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 14px;
   margin-bottom: 20px;
 }
@@ -214,13 +215,15 @@ label {
   gap: 8px;
 }
 
-input {
+input,
+select {
   width: 100%;
   min-height: 42px;
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 0 12px;
   color: #172033;
+  background: #ffffff;
 }
 
 .record-list {
@@ -260,6 +263,221 @@ input {
   line-height: 1.6;
 }
 
+.form-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.form-errors {
+  margin: 0;
+  padding: 10px 12px 10px 28px;
+  border: 1px solid color-mix(in srgb, #e11d48 40%, #ffffff);
+  border-radius: 6px;
+  background: color-mix(in srgb, #e11d48 7%, #ffffff);
+  color: #be123c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.hint {
+  margin: 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.empty {
+  margin: 0;
+  color: #64748b;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tag-draft {
+  background: color-mix(in srgb, var(--warn) 14%, #ffffff);
+  color: #c2410c;
+}
+
+.tag-active {
+  background: color-mix(in srgb, var(--primary) 12%, #ffffff);
+  color: var(--primary);
+}
+
+.tag-completed {
+  background: color-mix(in srgb, #16a34a 14%, #ffffff);
+  color: #15803d;
+}
+
+.tag-cancelled {
+  background: #eef2f7;
+  color: #64748b;
+}
+
+.tag-stock {
+  background: color-mix(in srgb, var(--accent) 10%, #ffffff);
+  color: var(--accent);
+}
+
+.tag-log-create,
+.tag-log-start {
+  background: color-mix(in srgb, var(--primary) 12%, #ffffff);
+  color: var(--primary);
+}
+
+.tag-log-complete,
+.tag-log-release,
+.tag-log-restock {
+  background: color-mix(in srgb, #16a34a 14%, #ffffff);
+  color: #15803d;
+}
+
+.tag-log-cancel,
+.tag-log-quarantine {
+  background: #eef2f7;
+  color: #64748b;
+}
+
+.tag-log-blocked {
+  background: color-mix(in srgb, #e11d48 10%, #ffffff);
+  color: #be123c;
+}
+
+.treatment-body {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.treatment-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.treatment-head h3 {
+  margin: 0;
+}
+
+.treatment-times {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.treatment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.treatment-cancelled {
+  opacity: 0.62;
+}
+
+.complete-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.complete-inline input {
+  width: 110px;
+}
+
+.complete-inline span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.index-muted {
+  background: #94a3b8;
+}
+
+.index-accent {
+  background: var(--accent);
+  font-size: 13px;
+}
+
+.stock-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: #eef2f7;
+  overflow: hidden;
+}
+
+.stock-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.restock-input {
+  width: 120px;
+}
+
+.issue-table {
+  display: grid;
+  gap: 8px;
+}
+
+.issue-row {
+  display: grid;
+  grid-template-columns: 90px 1.2fr 1.2fr 1.6fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, #e11d48 26%, #ffffff);
+  border-radius: 8px;
+  background: color-mix(in srgb, #e11d48 4%, #ffffff);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.issue-head {
+  background: transparent;
+  border-color: var(--border);
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+}
+
+.log-row {
+  display: grid;
+  grid-template-columns: 64px 1fr 110px;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.log-row p {
+  margin: 0;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.log-row time {
+  color: #94a3b8;
+  font-size: 12px;
+  text-align: right;
+}
+
 @media (max-width: 860px) {
   .hero,
   .workspace,
@@ -269,5 +487,18 @@ input {
 
   .field-grid {
     grid-template-columns: 1fr;
+  }
+
+  .issue-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .log-row {
+    grid-template-columns: 64px 1fr;
+  }
+
+  .log-row time {
+    grid-column: 2;
+    text-align: left;
   }
 }
